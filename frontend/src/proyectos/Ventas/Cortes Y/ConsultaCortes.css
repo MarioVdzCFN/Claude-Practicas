@@ -1,0 +1,259 @@
+/* Contenedor principal con fondo gris claro típico de Windows */
+.erp-window {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    box-sizing: border-box;
+    background-color: #ededed;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 11px;
+    color: #333333;
+    padding: 8px 12px;
+    overflow: hidden;
+  }
+  
+  /* ---------------- Filtros Superiores ---------------- */
+  .filter-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 8px;
+  }
+  
+  .filter-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .filter-group {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  
+  .filter-group label {
+    font-size: 11px;
+    color: #333333;
+    white-space: nowrap;
+  }
+  
+  .input-text {
+    height: 20px;
+    width: 90px;
+    border: 1px solid #7eb4ea;
+    padding: 0 4px;
+    outline: none;
+    font-size: 11px;
+    background-color: #ffffff;
+  }
+  
+  .input-search-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .btn-icon {
+    height: 22px;
+    width: 24px;
+    margin-left: 2px;
+    background: linear-gradient(to bottom, #f9f9f9, #e0e0e0);
+    border: 1px solid #ababab;
+    border-radius: 2px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+  }
+  
+  .input-date {
+    height: 20px;
+    border: 1px solid #8ba0b5;
+    background-color: #ffffff;
+    font-size: 11px;
+    padding: 0 4px;
+  }
+  
+  .select-field {
+    height: 22px;
+    border: 1px solid #8ba0b5;
+    background-color: #ffffff;
+    font-size: 11px;
+    padding: 0 4px;
+  }
+  
+  /* Botón Buscar superior */
+  .btn-buscar {
+    margin-left: auto;
+    min-width: 90px;
+  }
+  
+  /* ---------------- Grid / Tabla ---------------- */
+  .grid-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #99b4d1;
+    background-color: #ffffff;
+    overflow: hidden;
+    box-shadow: inset 0 0 2px rgba(0,0,0,0.1);
+  }
+  
+  .table-scroll-wrapper {
+    flex: 1;
+    overflow: auto;
+  }
+  
+  .erp-table {
+    width: 100%;
+    border-collapse: collapse;
+    white-space: nowrap;
+    table-layout: auto;
+  }
+  
+  /* Encabezados con degradado azulado/plateado */
+  .erp-table th {
+    background: linear-gradient(to bottom, #f2f7fc 0%, #e1edf7 50%, #cde1f2 100%);
+    border-right: 1px solid #adc5dc;
+    border-bottom: 1px solid #99b4d1;
+    padding: 4px 6px;
+    font-weight: 500;
+    text-align: left;
+    user-select: none;
+  }
+  
+  .th-corner, .td-corner {
+    width: 15px;
+    min-width: 15px;
+    background: linear-gradient(to bottom, #f2f7fc, #cde1f2);
+    border-right: 1px solid #adc5dc;
+  }
+  
+  .th-content {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  
+  .sort-arrows {
+    color: #3b7dc2;
+    font-size: 10px;
+  }
+  
+  .filter-icon {
+    font-size: 10px;
+    color: #3b7dc2;
+    margin-left: auto;
+  }
+  
+  /* Filas alternadas */
+  .erp-table td {
+    border-right: 1px solid #e1e1e1;
+    border-bottom: 1px solid #f0f0f0;
+    height: 20px;
+    padding: 0 6px;
+  }
+  
+  .row-even {
+    background-color: #ffffff;
+  }
+  
+  .row-odd {
+    background-color: #f7f9fa;
+  }
+  
+  /* Barra de Totales */
+  .totales-bar {
+    display: flex;
+    align-items: center;
+    height: 22px;
+    background: linear-gradient(to bottom, #eeeeee, #dcdcdc);
+    border-top: 1px solid #ababab;
+    padding: 0 8px;
+    font-weight: bold;
+  }
+  
+  .totales-label {
+    font-size: 11px;
+  }
+  
+  /* ---------------- Barra Inferior de Botones ---------------- */
+  .action-toolbar {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 10px;
+  }
+  
+  .btn-grid-actions {
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    gap: 6px;
+  }
+  
+  /* Botones estándar de estilo ERP / Windows */
+  .btn-erp {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 4px 10px;
+    height: 26px;
+    background: linear-gradient(to bottom, #ffffff 0%, #f1f1f1 50%, #e1e1e1 100%);
+    border: 1px solid #707070;
+    border-radius: 3px;
+    font-size: 11px;
+    color: #000000;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  
+  .btn-erp:hover {
+    background: linear-gradient(to bottom, #f2f9fe 0%, #e6f2fb 50%, #d4e7f7 100%);
+    border-color: #3c7fb1;
+  }
+  
+  .btn-erp:active {
+    background: linear-gradient(to bottom, #dbeaf7 0%, #cce1f4 100%);
+  }
+  
+  .btn-erp u {
+    text-decoration: underline;
+  }
+  
+  /* Íconos personalizados de la botonera inferior */
+  .badge-dollar {
+    color: #c98a00;
+    font-weight: bold;
+    font-size: 11px;
+  }
+  
+  .badge-circle {
+    font-size: 9px;
+    color: #3b82f6;
+  }
+  
+  .icon-xls {
+    background-color: #107c41;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 10px;
+    border-radius: 2px;
+    padding: 0 4px;
+    line-height: 14px;
+  }
+  
+  .icon-close {
+    background-color: #d83b01;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 9px;
+    border-radius: 2px;
+    padding: 1px 3px;
+    line-height: 10px;
+  }
+  
+  .icon-eye, .icon-print, .icon-binoculars {
+    font-size: 11px;
+  }

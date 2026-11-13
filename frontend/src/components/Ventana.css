@@ -1,0 +1,83 @@
+/* frontend/src/components/Ventana.css */
+
+.ventana {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  min-width: 320px;
+  min-height: 180px;
+  background: #ffffff;
+  border: 1px solid #4a5d78; /* Borde pizarra definido */
+  border-radius: 6px 6px 0 0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
+  resize: both;
+  overflow: hidden;
+}
+
+.ventana.maximizada {
+  inset: 0;
+  resize: none;
+  border: none;
+  border-radius: 0;
+}
+
+.ventana.minimizada {
+  display: none;
+}
+
+/* Barra de título: Azul pizarra / petróleo intermedio */
+.ventana-barra {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 12px;
+  background: linear-gradient(90deg, #37475d 0%, #445671 100%);
+  border-bottom: 1px solid #2b394c;
+  color: #ffffff;
+  user-select: none;
+  touch-action: none;
+}
+
+.ventana-titulo {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  color: #f1f5f9;
+}
+
+/* Botones de control */
+.ventana-botones {
+  display: flex;
+  gap: 4px;
+}
+
+.ventana-botones button {
+  width: 26px;
+  height: 22px;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: #cbd5e1;
+  font-size: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+}
+
+.ventana-botones button:hover {
+  background: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+}
+
+.ventana-botones .cerrar:hover {
+  background: #dc2626;
+  color: #ffffff;
+}
+
+.ventana-contenido {
+  flex: 1;
+  overflow: auto;
+  background: #ffffff;
+}

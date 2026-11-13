@@ -1,0 +1,404 @@
+/* frontend/src/proyectos/RecursosHumanos/Empleados/CatalogoEmpleados.css */
+
+.cat-empleados-contenedor {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  font-family: inherit;
+  color: #1e293b;
+  overflow: hidden;
+}
+
+/* 1. Filtros */
+.cat-empleados-filtros-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  flex-wrap: wrap;
+}
+
+.filtro-grupo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.filtro-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #475569;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.filtro-select {
+  padding: 5px 10px;
+  font-size: 13px;
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  color: #1e293b;
+  outline: none;
+  min-width: 140px;
+  cursor: pointer;
+}
+
+.filtro-select:focus {
+  border-color: #6366f1;
+}
+
+.filtro-busqueda-grupo {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  position: relative;
+  min-width: 240px;
+}
+
+.busqueda-icono {
+  position: absolute;
+  left: 10px;
+  font-size: 13px;
+  color: #94a3b8;
+  pointer-events: none;
+}
+
+.filtro-input-buscar {
+  width: 100%;
+  padding: 6px 12px 6px 32px;
+  font-size: 13px;
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  color: #0f172a;
+  outline: none;
+}
+
+.filtro-input-buscar:focus {
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.15);
+}
+
+/* 2. Tabla */
+.cat-empleados-tabla-area {
+  flex: 1;
+  position: relative;
+  overflow: auto;
+  background-color: #ffffff;
+}
+
+.tabla-empleados-limpia {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 13px;
+}
+
+.tabla-empleados-limpia thead tr {
+  background-color: #f1f5f9;
+  border-bottom: 1px solid #e2e8f0;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.tabla-empleados-limpia th {
+  padding: 12px 16px;
+  font-weight: 600;
+  font-size: 12.5px;
+  color: #475569;
+  white-space: nowrap;
+  user-select: none;
+  border: none;
+}
+
+.tabla-empleados-limpia td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #f1f5f9;
+  color: #475569;
+  white-space: nowrap;
+}
+
+.fila-empleado {
+  cursor: pointer;
+  transition: background-color 0.12s ease;
+}
+
+.fila-empleado:hover {
+  background-color: #f8fafc;
+}
+
+.fila-seleccionada {
+  background-color: #eff6ff !important;
+}
+
+.celda-destacada {
+  font-weight: 700;
+  color: #0f172a !important;
+}
+
+.celda-codigo {
+  font-weight: 600;
+  color: #1e293b;
+}
+
+/* Estados de fila */
+.fila-sin-jornada {
+  background-color: #dcfce7 !important; /* Verde menta claro */
+  border-bottom-color: #bbf7d0 !important;
+}
+
+.fila-sin-jornada:hover {
+  background-color: #bbf7d0 !important;
+}
+
+.fila-baja-temporal {
+  background-color: #fef08a !important; /* Amarillo visible */
+  border-bottom-color: #fde047 !important;
+}
+
+.fila-baja-temporal:hover {
+  background-color: #fde047 !important;
+}
+
+.fila-inactivo {
+  background-color: #fecaca !important; /* Rojo suave saturado */
+  border-bottom-color: #fca5a5 !important;
+}
+
+.fila-inactivo:hover {
+  background-color: #fca5a5 !important;
+}
+
+/* Fila seleccionada (Azul intenso para priorizar el foco) */
+.fila-seleccionada {
+  background-color: #c7d2fe !important; /* Índigo claro */
+  border-bottom-color: #a5b4fc !important;
+}
+
+/* Estado Vacío y Cargando */
+.cat-empleados-vacio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.vacio-ilustracion {
+  margin-bottom: 14px;
+}
+
+.vacio-titulo {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1e1b4b;
+  margin: 0 0 6px 0;
+}
+
+.vacio-subtitulo {
+  font-size: 13.5px;
+  color: #64748b;
+  margin: 0;
+  max-width: 480px;
+}
+
+.cat-empleados-cargando {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  font-size: 14px;
+  color: #64748b;
+}
+
+/* 3. Footer con Tabs */
+.cat-empleados-footer-contenedor {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  border-top: 1px solid #e2e8f0;
+}
+
+.footer-tabs-barra {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 16px 0 16px;
+  background-color: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.tabs-botones-grupo {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.tab-btn {
+  padding: 7px 16px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #64748b;
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-bottom: none;
+  border-radius: 6px 6px 0 0;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  position: relative;
+  top: 1px;
+}
+
+.tab-btn:hover {
+  color: #1e1b4b;
+  background-color: #f1f5f9;
+}
+
+.tab-btn-activo {
+  color: #1f1b5e;
+  background-color: #ffffff;
+  border-color: #e2e8f0;
+  border-top: 2.5px solid #1f1b5e;
+}
+
+.footer-leyendas {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-bottom: 6px;
+}
+
+.item-leyenda {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11.5px;
+  color: #475569;
+}
+
+.cuadro-color {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+}
+
+.color-sin-jornada {
+  background-color: #22c55e; /* Verde sólido */
+}
+
+.color-baja-temporal {
+  background-color: #eab308; /* Amarillo ámbar sólido */
+}
+
+.color-inactivo {
+  background-color: #ef4444; /* Rojo sólido */
+}
+
+.footer-acciones-barra {
+  padding: 10px 16px;
+  background-color: #ffffff;
+}
+
+.acciones-grupo-dinamico {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.acciones-separador-derecha {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+}
+
+/* Botones */
+.btn-accion {
+  padding: 6px 14px;
+  font-size: 12.5px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: background-color 0.15s ease;
+}
+
+.btn-activar {
+  background-color: #ecfdf5;
+  color: #059669;
+  border-color: #a7f3d0;
+}
+.btn-activar:hover {
+  background-color: #d1fae5;
+}
+
+.btn-baja-temporal {
+  background-color: #fef2f2;
+  color: #dc2626;
+  border-color: #fecaca;
+}
+.btn-baja-temporal:hover {
+  background-color: #fee2e2;
+}
+
+.btn-reactivar {
+  background-color: #fff1f2;
+  color: #e11d48;
+  border-color: #fecdd3;
+}
+.btn-reactivar:hover {
+  background-color: #ffe4e6;
+}
+
+.btn-huellas,
+.btn-usuario {
+  background-color: #f8fafc;
+  color: #334155;
+  border-color: #cbd5e1;
+}
+.btn-huellas:hover,
+.btn-usuario:hover {
+  background-color: #f1f5f9;
+}
+
+.btn-tab-opcion {
+  background-color: #f8fafc;
+  color: #1e1b4b;
+  border-color: #e2e8f0;
+}
+.btn-tab-opcion:hover {
+  background-color: #ede9fe;
+  border-color: #c7d2fe;
+}
+
+.btn-agregar-morado {
+  background-color: #1f1b5e;
+  color: #ffffff;
+}
+.btn-agregar-morado:hover {
+  background-color: #161245;
+}
+
+.btn-modificar {
+  background-color: #ffffff;
+  color: #334155;
+  border-color: #cbd5e1;
+}
+.btn-modificar:hover {
+  background-color: #f1f5f9;
+}

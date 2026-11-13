@@ -1,0 +1,214 @@
+/* frontend/src/pages/Login.module.css */
+
+.fondo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background: #f0f2f5; /* Fondo neutral y limpio */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.tarjeta {
+  width: 100%;
+  max-width: 410px;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Cabecera curva superior */
+.cabecera {
+  background: #353075;
+  color: #ffffff;
+  text-align: center;
+  padding: 30px 24px 26px 24px;
+  border-bottom-left-radius: 50% 16px;
+  border-bottom-right-radius: 50% 16px;
+}
+
+.titulo {
+  margin: 0 0 6px 0;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.subtitulo {
+  margin: 0;
+  font-size: 13.5px;
+  font-style: italic;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Cuerpo del formulario */
+.cuerpo {
+  padding: 26px 28px 22px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Grupo de entrada con ícono a la izquierda */
+.inputGrupo {
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border: 1.5px solid #dcdbe8;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.inputGrupo:focus-within {
+  border-color: #353075;
+  box-shadow: 0 0 0 3px rgba(53, 48, 117, 0.12);
+}
+
+.iconoCaja {
+  width: 44px;
+  height: 44px;
+  background: #353075;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.inputGrupo input,
+.select {
+  flex: 1;
+  height: 44px;
+  padding: 0 14px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  font-family: inherit;
+  color: #333333;
+  background: transparent;
+}
+
+.inputGrupo input::placeholder {
+  color: #8c88a8;
+}
+
+.select {
+  cursor: pointer;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #353075;
+}
+
+/* Botón de alternar ojo de contraseña */
+.btnOjo {
+  background: transparent;
+  border: none;
+  padding: 0 12px;
+  color: #8c88a8;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btnOjo:hover {
+  color: #353075;
+}
+
+/* Mensaje de error */
+.errorBox {
+  background: #ffebee;
+  color: #c62828;
+  font-size: 12.5px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+/* Botón Entrar */
+.btnEntrar {
+  margin-top: 6px;
+  height: 46px;
+  background: #353075;
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.btnEntrar:hover:not(:disabled) {
+  background: #2b2663;
+}
+
+.btnEntrar:active:not(:disabled) {
+  transform: scale(0.99);
+}
+
+.btnEntrar:disabled {
+  opacity: 0.7;
+  cursor: default;
+}
+
+/* Pie con sucursal e IP */
+.pieInfo {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.divisorLinea {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.divisorLinea::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #e2e1ec;
+  z-index: 1;
+}
+
+.nombrePie {
+  position: relative;
+  z-index: 2;
+  background: #ffffff;
+  padding: 0 12px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #726e8d;
+}
+
+.ipPie {
+  font-size: 11.5px;
+  color: #8c88a8;
+  font-family: Consolas, monospace;
+}

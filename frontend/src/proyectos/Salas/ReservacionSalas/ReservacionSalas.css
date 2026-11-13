@@ -1,0 +1,1571 @@
+/* frontend/src/proyectos/Salas/ReservacionSalas/ReservacionSalas.css */
+.reservacion-modulo {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #f1f5f9;
+  color: #1e293b;
+  overflow: hidden;
+  font-family: inherit;
+}
+
+.reservacion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 18px;
+  background: #ffffff;
+  border-bottom: 1px solid #cbd5e1;
+}
+
+.filtros-grupo {
+  display: flex;
+  gap: 16px;
+}
+
+.control-campo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.control-campo select {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+  background: #fff;
+}
+
+.control-campo select:disabled {
+  background-color: #f1f5f9;
+  color: #94a3b8;
+  border-color: #cbd5e1;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.acciones-grupo {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-accion {
+  padding: 7px 14px;
+  border-radius: 6px;
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 13px;
+  transition: opacity 0.15s;
+}
+.btn-accion:hover { opacity: 0.9; }
+.btn-azul { background: #2563eb; }
+.btn-verde { background: #059669; }
+
+.btn-accion:disabled {
+  background-color: #94a3b8 !important;
+  color: #f1f5f9 !important;
+  cursor: not-allowed !important;
+  opacity: 0.65;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+/* ============================================================== */
+/* LAYOUT DIVIDIDO: SALAS + DASHBOARD RESUMEN GENERAL             */
+/* ============================================================== */
+.reservacion-layout-principal {
+  display: grid;
+  grid-template-columns: 1fr 490px;
+  gap: 16px;
+  padding: 16px;
+  flex: 1;
+  overflow: hidden;
+  background: #f8fafc;
+}
+
+/* Cuadrícula de tarjetas de salas */
+.cuadricula-salas {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 14px;
+  overflow-y: auto;
+  align-content: flex-start;
+  padding-right: 4px;
+}
+
+.tarjeta-sala {
+  background: #ffffff;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.tarjeta-sala:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+}
+.borde-disponible { border-color: #10b981; }
+.borde-ocupado { border-color: #ef4444; }
+
+.tarjeta-top {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 12px 0;
+}
+
+.badge-estado {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 12px;
+}
+.badge-disponible { background: #d1fae5; color: #065f46; }
+.badge-ocupado { background: #fee2e2; color: #991b1b; }
+
+.tarjeta-cuerpo {
+  padding: 10px 14px 14px;
+  flex: 1;
+}
+
+.sala-titulo {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.sala-capacidad {
+  font-size: 12px;
+  color: #64748b;
+  margin-top: 2px;
+  display: inline-block;
+}
+
+.sala-desc {
+  font-size: 12.5px;
+  color: #475569;
+  margin: 8px 0 4px 0;
+  line-height: 1.4;
+}
+
+.reunion-tema-actual {
+  font-size: 12px;
+  color: #991b1b;
+  margin: 6px 0 0 0;
+  background: #fef2f2;
+  padding: 4px 8px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.tarjeta-pie {
+  padding: 9px 12px;
+  font-size: 11.5px;
+  font-weight: 600;
+  border-top: 1px solid #e2e8f0;
+  border-radius: 0 0 8px 8px;
+}
+.pie-disponible { background: #ecfdf5; color: #047857; }
+.pie-ocupado { background: #fef2f2; color: #b91c1c; }
+
+/* ============================================================== */
+/* DASHBOARD RESUMEN GENERAL (LATERAL DERECHO REESTRUCTURADO)     */
+/* ============================================================== */
+.dashboard-resumen-lateral {
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow-y: auto;
+}
+
+.dash-cabecera {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #0f2744;
+  color: #ffffff;
+  padding: 8px 14px;
+  border-radius: 8px;
+}
+
+.dash-titulo-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.dash-titulo-box h3 {
+  margin: 0;
+  font-size: 14.5px;
+  font-weight: 700;
+}
+.dash-icono-grafica {
+  font-size: 16px;
+}
+
+.dash-selector-rango select {
+  background: #1e3a5f;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* 4 KPIs */
+.dash-kpis-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.kpi-card {
+  border-radius: 8px;
+  padding: 8px 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.kpi-icono { font-size: 15px; margin-bottom: 2px; }
+.kpi-valor { font-size: 19px; font-weight: 800; line-height: 1.1; }
+.kpi-etiqueta { font-size: 10px; font-weight: 600; margin-top: 2px; }
+
+.kpi-azul { background: #e0f2fe; color: #0369a1; }
+.kpi-verde { background: #dcfce7; color: #166534; }
+.kpi-rojo { background: #fee2e2; color: #991b1b; }
+.kpi-morado { background: #f3e8ff; color: #6b21a8; }
+
+/* Tarjetas Generales del Dashboard */
+.dash-bloque-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+}
+
+.dash-bloque-card h4 {
+  margin: 0 0 10px 0;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+/* Bloques a ancho completo */
+.dash-bloque-ancho-completo {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Bloque Próximas Reuniones que abarca el resto del espacio */
+.dash-bloque-proximas-expandido {
+  width: 100%;
+  flex: 1;
+  min-height: 140px;
+  box-sizing: border-box;
+}
+
+/* Gráfico Donut (Departamento con más reuniones) */
+.donut-contenedor-flex {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.donut-grafico-svg {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  flex-shrink: 0;
+}
+
+.circular-chart {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.circle-bg {
+  fill: none;
+  stroke: #f1f5f9;
+  stroke-width: 5;
+}
+.circle-azul {
+  fill: none;
+  stroke: #0284c7;
+  stroke-width: 5;
+}
+.circle-verde {
+  fill: none;
+  stroke: #10b981;
+  stroke-width: 5;
+}
+.circle-naranja {
+  fill: none;
+  stroke: #f97316;
+  stroke-width: 5;
+}
+
+.donut-texto-centro {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.donut-texto-centro strong {
+  display: block;
+  font-size: 14px;
+  color: #0f172a;
+}
+.donut-texto-centro span {
+  font-size: 8.5px;
+  color: #64748b;
+}
+
+.donut-leyenda {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+.item-leyenda {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11.5px;
+}
+.bullet {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.bullet-azul { background: #0284c7; }
+.bullet-verde { background: #10b981; }
+.bullet-naranja { background: #f97316; }
+
+/* Gráfico Tendencia de Área a ancho completo */
+.grafico-tendencia-area {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.svg-tendencia {
+  width: 100%;
+  height: 75px;
+  overflow: visible;
+}
+.eje-dias-semana {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  font-weight: 600;
+  color: #64748b;
+  margin-top: 6px;
+  padding: 0 10px;
+}
+
+/* Próximas Reuniones */
+.card-cabecera-simple {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.card-cabecera-simple h4 { margin: 0; }
+.link-ver-todas {
+  font-size: 11px;
+  color: #0284c7;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.lista-proximas-reuniones {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  overflow-y: auto;
+}
+.item-proxima-reunion {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 10px;
+  background: #f8fafc;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+}
+.badge-hora-reunion {
+  background: #e2e8f0;
+  color: #334155;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 6px;
+  border-radius: 4px;
+}
+.info-texto-proxima {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  line-height: 1.25;
+}
+.info-texto-proxima strong {
+  font-size: 12px;
+  color: #0f172a;
+}
+.info-texto-proxima span {
+  font-size: 10px;
+  color: #64748b;
+}
+
+.chip-sala-azul,
+.chip-sala-verde,
+.chip-sala-morada {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 10px;
+}
+.chip-sala-azul { background: #e0f2fe; color: #0284c7; }
+.chip-sala-verde { background: #dcfce7; color: #166534; }
+.chip-sala-morada { background: #f3e8ff; color: #6b21a8; }
+
+/* Botón inferior Más detalles */
+.dash-footer-acciones {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: auto;
+  padding-top: 8px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.btn-mas-detalles-dashboard {
+  background: #f8fafc;
+  color: #0284c7;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 7px 16px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.btn-mas-detalles-dashboard:hover {
+  background: #0284c7;
+  color: #ffffff;
+  border-color: #0284c7;
+}
+
+/* ============================================================== */
+/* TIMELINE / CRONOGRAMA                                          */
+/* ============================================================== */
+.cronograma-plano {
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow-y: auto;
+  position: relative;
+}
+
+.cronograma-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+  background: #fff;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+}
+
+.cronograma-titulo-sala h2 {
+  margin: 0;
+  font-size: 18px;
+  color: #0f172a;
+}
+
+.cronograma-subcapacidad {
+  font-size: 12px;
+  color: #64748b;
+}
+
+.cronograma-selector-fecha {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto;
+}
+
+.cronograma-selector-fecha input {
+  padding: 6px 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+}
+
+.texto-fecha-seleccionada {
+  font-size: 13.5px;
+  color: #334155;
+  background: #f8fafc;
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+}
+
+.texto-fecha-seleccionada strong {
+  color: #0284c7;
+  font-weight: 700;
+}
+
+.btn-agendar-directo {
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+}
+.btn-agendar-directo:hover { background: #1d4ed8; }
+
+.timeline-horas {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.bloque-hora {
+  display: flex;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.etiqueta-hora {
+  width: 90px;
+  padding: 10px;
+  font-weight: 700;
+  background: #e2e8f0;
+  border-right: 1px solid #cbd5e1;
+  text-align: center;
+  font-size: 13px;
+}
+
+.contenido-hora {
+  padding: 10px 14px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.bloque-ocupado { background: #fee2e2; border-color: #f87171; }
+.bloque-libre:hover { background: #f0fdf4; border-color: #86efac; }
+
+.bloque-pasado-libre {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.bloque-pasado-libre .etiqueta-hora {
+  background: #e2e8f0;
+  color: #94a3b8;
+}
+
+.texto-pasado {
+  color: #94a3b8;
+  font-size: 13px;
+  font-style: italic;
+}
+
+.bloque-ocupado-pasado {
+  background: #f8fafc;
+  border-color: #94a3b8;
+  cursor: pointer;
+  border-left: 5px solid #64748b;
+}
+
+.bloque-ocupado-pasado:hover {
+  background: #f1f5f9;
+  border-color: #64748b;
+}
+
+.bloque-ocupado-pasado .etiqueta-hora {
+  background: #e2e8f0;
+  color: #475569;
+}
+
+.bloque-ocupado-pasado .info-reunion-bloque {
+  color: #475569;
+}
+
+.bloque-ocupado-pasado .bloque-invitados-count {
+  color: #64748b;
+}
+
+.badge-finalizada {
+  background: #e2e8f0;
+  color: #475569;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 4px;
+  margin-left: 6px;
+}
+
+.info-reunion-bloque {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #991b1b;
+}
+
+.bloque-invitados-count {
+  font-size: 12px;
+  color: #7f1d1d;
+}
+
+.texto-disponible {
+  color: #15803d;
+  font-size: 13px;
+}
+
+.panel-detalle-reunion {
+  position: fixed;
+  right: 32px;
+  top: 140px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+  border-radius: 8px;
+  padding: 16px;
+  width: 320px;
+  z-index: 900;
+}
+
+.detalle-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 6px;
+}
+
+.detalle-header h3 {
+  margin: 0;
+  font-size: 15px;
+}
+
+/* ============================================================== */
+/* MODAL AGENDAR REUNIÓN                                          */
+/* ============================================================== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.modal-agendar-reunion {
+  background: #ffffff;
+  border-radius: 12px;
+  width: 96vw;
+  max-width: 1320px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  max-height: 94vh;
+  overflow: hidden;
+}
+
+.modal-cabecera {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.modal-cabecera h3 {
+  margin: 0;
+  font-size: 16px;
+  color: #0f172a;
+}
+
+.subtitulo-agendar {
+  font-size: 12px;
+  color: #64748b;
+}
+
+.btn-cerrar-x {
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: #64748b;
+}
+
+.form-agendar-cuerpo {
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow-y: auto;
+}
+
+.agendar-seccion-general {
+  display: flex;
+  gap: 12px;
+}
+
+.flex-3 { flex: 3; }
+.flex-1 { flex: 1; }
+
+.campo-grupo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.campo-grupo label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #475569;
+}
+
+.campo-grupo input,
+.campo-grupo textarea {
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+  font-size: 13px;
+  font-family: inherit;
+}
+
+.agendar-layout-dividido {
+  display: grid;
+  grid-template-columns: 335px 1fr;
+  gap: 18px;
+  margin-top: 4px;
+  background: #f8fafc;
+  padding: 14px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}
+
+.columna-participantes {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.participantes-cabecera {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.participantes-cabecera h4 {
+  margin: 0;
+  font-size: 14px;
+  color: #1e293b;
+}
+
+.btn-abrir-buscador-participante {
+  background: #252579;
+  color: #ffffff;
+  border: none;
+  border-radius: 24px;
+  padding: 9px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  box-shadow: 0 2px 6px rgba(37, 37, 121, 0.25);
+  font-size: 13.5px;
+  font-weight: 600;
+  width: 100%;
+}
+
+.btn-abrir-buscador-participante:hover {
+  background: #1c1c63;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(37, 37, 121, 0.35);
+}
+
+.btn-abrir-buscador-participante:active {
+  transform: translateY(0);
+}
+
+.lista-invitados-scroll {
+  max-height: 380px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 4px;
+  padding-right: 2px;
+}
+
+.texto-vacio-invitados {
+  font-size: 12px;
+  color: #64748b;
+  text-align: center;
+  padding: 16px 10px;
+  background: #fff;
+  border-radius: 6px;
+  border: 1px dashed #cbd5e1;
+  margin: 0;
+}
+
+.item-invitado-fila {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  padding: 6px 8px;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+  gap: 6px;
+}
+
+.invitado-info-col {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+
+.invitado-nombre {
+  font-size: 12px;
+  font-weight: 600;
+  color: #0f172a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.invitado-etiqueta {
+  font-size: 10.5px;
+  color: #64748b;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.invitado-asiento-col {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.invitado-asiento-col select {
+  font-size: 11.5px;
+  padding: 4px 6px;
+  border-radius: 4px;
+  border: 1px solid #cbd5e1;
+  background: #f8fafc;
+  max-width: 125px;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+
+.btn-quitar-invitado {
+  background: transparent;
+  border: none;
+  color: #ef4444;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 2px 4px;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-quitar-invitado:hover {
+  color: #b91c1c;
+}
+
+.columna-plano-interactivo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  overflow: hidden;
+}
+
+.plano-cabecera {
+  display: flex;
+  align-items: center;
+}
+
+.plano-titulo-grupo {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.plano-titulo-grupo h4 {
+  margin: 0;
+  font-size: 14px;
+  color: #1e293b;
+}
+
+.nota-clic-silla-lado {
+  font-size: 12px;
+  color: #0284c7;
+  font-weight: 600;
+}
+
+.cuadricula-mapa-agendar {
+  background: #cbd5e1;
+  padding: 10px;
+  border-radius: 6px;
+  overflow: auto;
+  max-height: 420px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.grid-sala-agendar {
+  display: grid;
+  gap: 3px;
+}
+
+.celda-agendar {
+  position: relative;
+  background: #fff;
+  border-radius: 4px;
+  border: 1px solid #94a3b8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  user-select: none;
+  transition: all 0.1s ease;
+}
+
+.celda-mesa {
+  background: #78350f !important;
+  border-color: #451a03 !important;
+  color: #fef3c7 !important;
+  cursor: default;
+}
+
+.mesa-ascii-mini {
+  font-family: monospace;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.celda-tv {
+  background: #1e293b !important;
+  border-color: #0f172a !important;
+  color: #f8fafc !important;
+  cursor: default;
+}
+
+.tv-mini-icono {
+  font-size: 14px;
+}
+
+.celda-silla {
+  background: #0284c7;
+  border-color: #0369a1;
+  color: #fff;
+  cursor: pointer;
+}
+
+.silla-con-persona {
+  background: #15803d !important;
+  border-color: #166534 !important;
+  cursor: default;
+}
+
+.silla-seleccionada-focus {
+  outline: 2px solid #f59e0b;
+  transform: scale(1.08);
+}
+
+.silla-mini-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1;
+}
+
+.num-silla-mini {
+  font-size: 8px;
+  font-weight: 800;
+}
+
+.tooltip-ocupante {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #0f172a;
+  color: #ffffff;
+  padding: 5px 9px;
+  border-radius: 5px;
+  font-size: 11.5px;
+  font-weight: 600;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.28);
+  border: 1px solid #334155;
+  transition: opacity 0.15s ease, visibility 0.15s ease;
+}
+
+.tooltip-ocupante::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 4px;
+  border-style: solid;
+  border-color: #0f172a transparent transparent transparent;
+}
+
+.celda-agendar.silla-con-persona:hover .tooltip-ocupante {
+  visibility: visible;
+  opacity: 1;
+}
+
+.resumen-plano-pie {
+  display: flex;
+  gap: 12px;
+  font-size: 11px;
+  color: #475569;
+  justify-content: center;
+  margin-top: 4px;
+}
+
+.dot-libre { color: #0284c7; font-weight: 600; }
+.dot-ocupado { color: #15803d; font-weight: 600; }
+.dot-mesa { color: #78350f; font-weight: 600; }
+.dot-tv { color: #1e293b; font-weight: 600; }
+
+/* Botones de acción del Modal */
+.modal-acciones {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.checkbox-enviar-correo-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #334155;
+  cursor: pointer;
+  user-select: none;
+  margin-right: auto;
+}
+
+.checkbox-enviar-correo-label input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: #2563eb;
+}
+
+.btn-cancelar {
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #475569;
+}
+
+.btn-guardar {
+  background: #2563eb;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 6px;
+  color: #ffffff;
+  font-weight: 700;
+  cursor: pointer;
+}
+.btn-guardar:hover { background: #1d4ed8; }
+
+.error-aviso {
+  background: #fef2f2;
+  color: #991b1b;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 12.5px;
+  font-weight: 600;
+  border: 1px solid #fecaca;
+}
+
+/* ============================================================== */
+/* SEGUNDO MODAL: BUSCADOR PARTICIPANTES                          */
+/* ============================================================== */
+.modal-buscador-z {
+  z-index: 10005 !important;
+}
+
+.modal-tarjeta-buscador-personas {
+  background: #ffffff;
+  border-radius: 12px;
+  width: 95vw;
+  max-width: 960px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+  display: flex;
+  flex-direction: column;
+  max-height: 85vh;
+  overflow: hidden;
+}
+
+.buscador-personas-filtros-bar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 20px;
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.filtro-campo-tipo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.filtro-campo-tipo select {
+  padding: 7px 10px;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+}
+
+.filtro-campo-input input {
+  width: 100%;
+  padding: 7px 12px;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+  font-size: 13px;
+  box-sizing: border-box;
+}
+
+.tabla-buscador-personas-scroll {
+  flex: 1;
+  overflow: auto;
+  padding: 16px 20px;
+}
+
+.tabla-personas-selector {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.tabla-personas-selector th {
+  background: #f1f5f9;
+  padding: 10px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #475569;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.fila-selector-persona {
+  cursor: pointer;
+  transition: background 0.12s ease;
+}
+.fila-selector-persona:hover {
+  background: #f0fdf4;
+}
+
+.fila-ya-agregada {
+  opacity: 0.55;
+  background: #fafafa;
+  cursor: default;
+}
+
+.tabla-personas-selector td {
+  padding: 8px 12px;
+  font-size: 12.5px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.col-codigo-txt {
+  font-family: monospace;
+  font-weight: 700;
+  color: #64748b;
+}
+
+.col-nombre-txt {
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.col-puesto-txt {
+  color: #334155;
+}
+
+.col-sucursal-txt {
+  color: #64748b;
+}
+
+.col-correo-txt {
+  color: #2563eb;
+}
+
+.badge-tipo-persona {
+  display: inline-block;
+  padding: 2px 7px;
+  border-radius: 10px;
+  font-size: 10.5px;
+  font-weight: 700;
+}
+.badge-empleado {
+  background: #e0f2fe;
+  color: #0369a1;
+}
+.badge-invitado {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.btn-seleccionar-persona {
+  background: #059669;
+  color: #fff;
+  border: none;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 11.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.btn-seleccionar-persona:hover { background: #047857; }
+
+.txt-ya-asignado {
+  font-size: 11px;
+  font-weight: 700;
+  color: #15803d;
+}
+
+.texto-vacio-dash {
+  font-size: 11px;
+  color: #94a3b8;
+  font-style: italic;
+  display: block;
+  padding: 8px 0;
+  text-align: center;
+}
+
+/* ============================================================== */
+/* BOTONES DE DISPARO DEL CALENDARIO                              */
+/* ============================================================== */
+.btn-abrir-calendario-icono {
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: all 0.15s ease;
+}
+.btn-abrir-calendario-icono:hover {
+  background: #e2e8f0;
+  transform: scale(1.05);
+}
+
+.input-fecha-con-boton {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.input-fecha-con-boton input {
+  flex: 1;
+}
+.btn-abrir-calendario-input {
+  background: #0284c7;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 7px 11px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.btn-abrir-calendario-input:hover {
+  background: #0369a1;
+}
+
+/* ============================================================== */
+/* MODAL GOOGLE CALENDAR                                          */
+/* ============================================================== */
+.modal-calendario-overlay {
+  z-index: 10010 !important;
+}
+
+.modal-calendario-google-caja {
+  background: #ffffff;
+  border-radius: 12px;
+  width: 95vw;
+  max-width: 1240px;
+  height: 90vh;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+}
+
+.gcal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 24px;
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.gcal-nav-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.btn-gcal-hoy {
+  border: 1px solid #dadce0;
+  background: #ffffff;
+  color: #3c4043;
+  padding: 7px 18px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.btn-gcal-hoy:hover {
+  background: #f1f3f4;
+}
+
+.gcal-flechas-mes {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.btn-gcal-flecha {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  font-size: 20px;
+  line-height: 1;
+  color: #5f6368;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s;
+}
+.btn-gcal-flecha:hover {
+  background: #f1f3f4;
+}
+
+.gcal-titulo-mes-anio {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 500;
+  color: #3c4043;
+}
+
+.gcal-nav-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.gcal-sala-badge {
+  background: #e0f2fe;
+  color: #0369a1;
+  font-size: 12.5px;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 14px;
+}
+
+/* Cabecera Días */
+.gcal-grid-dias-semana {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  background: #ffffff;
+  border-bottom: 1px solid #dadce0;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 700;
+  color: #70757a;
+  padding: 8px 0;
+}
+
+/* Cuadrícula Mensual */
+.gcal-grid-cuerpo {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-auto-rows: 1fr;
+  flex: 1;
+  background: #dadce0; /* color del borde de las celdas */
+  gap: 1px;
+  overflow-y: auto;
+}
+
+.gcal-celda-dia {
+  background: #ffffff;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: background 0.12s ease;
+  min-height: 90px;
+}
+.gcal-celda-dia:hover {
+  background: #f8fafc;
+}
+
+.gcal-dia-otro-mes {
+  background: #f8fafc;
+}
+.gcal-dia-otro-mes .gcal-numero-dia {
+  color: #9aa0a6;
+}
+
+.gcal-dia-seleccionado {
+  background: #f0fdf4 !important;
+}
+
+.gcal-numero-dia-fila {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 4px;
+}
+
+.gcal-numero-dia {
+  font-size: 12px;
+  font-weight: 600;
+  color: #3c4043;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.gcal-badge-hoy {
+  background: #1a73e8 !important;
+  color: #ffffff !important;
+  font-weight: 700;
+}
+
+/* Pastillas de Reuniones estilo Google Calendar */
+.gcal-lista-eventos-dia {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  overflow-y: auto;
+  max-height: 80px;
+}
+
+.gcal-pastilla-evento {
+  background: #0f8b5f;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 6px;
+  border-radius: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  line-height: 1.2;
+}
+.gcal-pastilla-evento:hover {
+  background: #0b6846;
+}
+
+.detalle-organizador-bloque {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 8px;
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.detalle-organizador-bloque strong {
+  color: #1e293b;
+}
+
+.detalle-organizador-nombre {
+  color: #0369a1;
+  font-weight: 600;
+  word-break: break-word;
+}
+
+.gcal-pastilla-global {
+  background: #0284c7;
+  cursor: pointer;
+}
+.gcal-pastilla-global:hover {
+  background: #0369a1;
+}
+
+.link-ver-todas:hover {
+  text-decoration: underline;
+}

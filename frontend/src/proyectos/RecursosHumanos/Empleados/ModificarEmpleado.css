@@ -1,0 +1,443 @@
+/* frontend/src/proyectos/RecursosHumanos/Empleados/ModificarEmpleado.css */
+
+.mod-empleado-contenedor {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background-color: #d8dee9; /* Tono grisáceo claro industrial/sistema */
+    font-family: inherit;
+    color: #1e293b;
+    overflow: hidden;
+    user-select: none;
+  }
+  
+  /* 1. SECCIÓN SUPERIOR */
+  .mod-empleado-cabecera {
+    display: flex;
+    padding: 10px 14px;
+    gap: 12px;
+    background-color: #e5e9f0;
+    border-bottom: 1px solid #c0c7d4;
+    align-items: flex-start;
+  }
+  
+  /* Foto y sus botones verticales */
+  .mod-empleado-foto-bloque {
+    display: flex;
+    gap: 6px;
+  }
+  
+  .mod-empleado-foto-caja {
+    width: 120px;
+    height: 110px;
+    border: 2px solid #8892b0;
+    background-color: #0f172a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  
+  .mod-empleado-foto-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .mod-empleado-foto-placeholder {
+    font-size: 42px;
+    color: #94a3b8;
+  }
+  
+  .mod-empleado-foto-acciones {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  
+  .btn-foto-accion {
+    width: 28px;
+    height: 28px;
+    background: linear-gradient(180deg, #f8fafc 0%, #cbd5e1 100%);
+    border: 1px solid #94a3b8;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 13px;
+  }
+  
+  .btn-foto-accion:hover {
+    background: linear-gradient(180deg, #ffffff 0%, #b8c4d8 100%);
+  }
+  
+  /* Bloque central de datos */
+  .mod-empleado-datos-bloque {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  
+  .grid-cabecera-fila {
+    display: flex;
+    gap: 8px;
+    align-items: flex-end;
+  }
+  
+  .fila-selectores {
+    margin-bottom: 2px;
+  }
+  
+  .control-grupo {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  
+  .flex-2 {
+    flex: 2;
+  }
+  
+  .flex-3 {
+    flex: 3;
+  }
+  
+  .control-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: #334155;
+    margin-bottom: 2px;
+  }
+  
+  .input-select-clasico {
+    padding: 5px 8px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #0f172a;
+    background: linear-gradient(180deg, #f1f5f9 0%, #cbd5e1 100%);
+    border: 1px solid #79869c;
+    border-radius: 2px;
+    outline: none;
+    cursor: pointer;
+  }
+  
+  .input-texto-clasico {
+    padding: 4px 6px;
+    font-size: 12px;
+    color: #0f172a;
+    background-color: #ffffff;
+    border: 1px solid #79869c;
+    border-radius: 2px;
+    outline: none;
+    box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1);
+  }
+  
+  .input-texto-clasico:focus {
+    border-color: #2563eb;
+  }
+  
+  /* Bloque derecho: Estatus */
+  .mod-empleado-estatus-bloque {
+    display: flex;
+    flex-direction: column;
+    min-width: 130px;
+  }
+  
+  .badge-estatus-foquito {
+    text-align: center;
+    padding: 6px 12px;
+    font-size: 12.5px;
+    font-weight: 800;
+    border-radius: 3px;
+    letter-spacing: 0.5px;
+  }
+  
+  .estatus-activo {
+    background-color: #22c55e;
+    color: #ffffff;
+    box-shadow: 0 0 10px rgba(34, 197, 94, 0.7);
+    border: 1px solid #16a34a;
+  }
+  
+  .estatus-inactivo {
+    background-color: #ef4444;
+    color: #ffffff;
+    box-shadow: 0 0 10px rgba(239, 68, 68, 0.7);
+    border: 1px solid #dc2626;
+  }
+  
+  .mt-campo-fecha {
+    margin-top: 8px;
+  }
+  
+  /* 2. PESTAÑAS (TABS) */
+  .mod-empleado-tabs-barra {
+    display: flex;
+    background-color: #c9d1de;
+    border-bottom: 1px solid #94a3b8;
+    padding: 4px 10px 0 10px;
+    gap: 3px;
+  }
+  
+  .tab-btn-clasico {
+    padding: 6px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #334155;
+    background: linear-gradient(180deg, #e2e8f0 0%, #cbd5e1 100%);
+    border: 1px solid #94a3b8;
+    border-bottom: none;
+    border-radius: 4px 4px 0 0;
+    cursor: pointer;
+  }
+  
+  .tab-btn-clasico-activo {
+    background: #eef2f6;
+    border-color: #79869c;
+    color: #0f172a;
+    font-weight: 700;
+  }
+  
+  /* 3. CONTENIDO DE LAS PESTAÑAS */
+  .mod-empleado-tab-contenido {
+    flex: 1;
+    background-color: #eef2f6;
+    padding: 16px 20px;
+    overflow: auto;
+  }
+  
+  .tab-cuerpo-general {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .grid-checkboxes-columnas {
+    display: grid;
+    grid-template-columns: 1.4fr 1.3fr 1fr;
+    gap: 16px;
+  }
+  
+  .columna-checkboxes {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+  }
+  
+  .checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 12.5px;
+    color: #1e293b;
+    cursor: pointer;
+  }
+  
+  .checkbox-item input[type="checkbox"] {
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
+  }
+  
+  /* Controles inferiores de importe */
+  .fila-controles-inferiores {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 10px;
+  }
+  
+  .control-linea {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .control-label-fijo {
+    font-size: 12px;
+    font-weight: 600;
+    color: #1e293b;
+    width: 130px;
+  }
+  
+  .input-monto-azul {
+    width: 120px;
+    text-align: right;
+    font-weight: 700;
+    color: #0284c7 !important;
+    background-color: #eff6ff !important;
+  }
+  
+  .grupo-input-buscar {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  
+  .grupo-input-buscar input {
+    width: 110px;
+  }
+  
+  .btn-buscar-lupa {
+    padding: 2px 6px;
+    background: linear-gradient(180deg, #f8fafc 0%, #cbd5e1 100%);
+    border: 1px solid #94a3b8;
+    border-radius: 2px;
+    cursor: pointer;
+    font-size: 11px;
+  }
+  
+  .tab-cuerpo-vacio {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: #64748b;
+    font-size: 14px;
+  }
+  
+  /* 4. BARRA INFERIOR DE ACCIONES */
+  .mod-empleado-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 14px;
+    background-color: #d1d9e6;
+    border-top: 1px solid #b0bac9;
+  }
+  
+  .btn-barra-footer {
+    padding: 5px 18px;
+    font-size: 12.5px;
+    font-weight: 600;
+    border: 1px solid #79869c;
+    border-radius: 3px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: linear-gradient(180deg, #f8fafc 0%, #cbd5e1 100%);
+  }
+  
+  .btn-barra-footer:hover {
+    background: linear-gradient(180deg, #ffffff 0%, #b8c4d8 100%);
+  }
+  
+  .btn-guardar {
+    font-weight: 700;
+    color: #064e3b;
+  }
+
+  /* ==========================================================
+   ESTILOS DE LA PESTAÑA: INFORMACIÓN PERSONAL
+========================================================== */
+
+.etiqueta-personal {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #334155;
+  min-width: 135px;
+  text-align: left;
+}
+
+.personal-grid-columnas {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr 1.35fr;
+  gap: 24px;
+}
+
+.personal-columna {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.personal-campo-fila {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.control-flex {
+  flex: 1;
+  min-width: 0;
+}
+
+.mt-recibe-notif {
+  margin-top: 4px;
+  padding-left: 143px; /* Alineado justo debajo de los inputs de la columna */
+}
+
+/* ==========================================================
+   ESTILOS DE LA PESTAÑA: NÓMINA
+========================================================== */
+
+.tab-cuerpo-nomina {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.nomina-grid-columnas {
+  display: grid;
+  grid-template-columns: 1.15fr 1.35fr 1fr;
+  gap: 28px;
+}
+
+.nomina-columna {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.nomina-campo-fila {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.etiqueta-nomina {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #334155;
+  min-width: 145px;
+  text-align: left;
+}
+
+.etiqueta-baja {
+  min-width: 75px;
+}
+
+/* Campos de moneda y alineaciones */
+.input-prefijo-contenedor {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.prefijo-moneda {
+  position: absolute;
+  left: 6px;
+  font-size: 11.5px;
+  color: #64748b;
+  pointer-events: none;
+}
+
+.input-moneda {
+  width: 100%;
+  padding-left: 16px !important;
+  text-align: right;
+  font-weight: 600;
+}
+
+.input-alineado-derecha {
+  text-align: right;
+  font-weight: 600;
+}
+
+.mt-checks-prenomina {
+  margin-top: 6px;
+}

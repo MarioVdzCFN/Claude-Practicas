@@ -1,0 +1,208 @@
+/* frontend/src/components/BarraMenu.css */
+
+.barra-superior {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 58px;
+  background: linear-gradient(90deg, #281d77 0%, #1e165f 60%, #16104c 100%);
+  padding: 0 12px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.25);
+  user-select: none;
+  z-index: 1000;
+  position: relative;
+}
+
+.barra-principal {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  overflow: visible;
+  padding: 4px 0;
+  flex-wrap: nowrap;
+}
+
+.barra-lateral {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.separador-vertical {
+  width: 1px;
+  height: 28px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 0 6px;
+}
+
+.area-contenedor {
+  position: relative;
+  display: flex;
+}
+
+.area-tarjeta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 44px;
+  padding: 0 16px;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 14.5px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.18s ease, border-color 0.18s ease;
+}
+
+.area-tarjeta:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.area-tarjeta.activo {
+  background: rgba(255, 255, 255, 0.22);
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.tarjeta-accion:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.area-titulo {
+  letter-spacing: 0.2px;
+}
+
+.area-flecha {
+  font-size: 11px;
+  opacity: 0.8;
+  transform: translateY(1px);
+}
+
+/* Primer nivel: Menú con scroll vertical limpio */
+.dropdown-moderno {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 320px; /* Ancho fijo para que nada intente estirarlo */
+  max-height: 75vh;
+  overflow-y: auto;
+  overflow-x: hidden; /* Cero scroll horizontal */
+  margin: 4px 0 0 0;
+  padding: 6px 0;
+  list-style: none;
+  background: #201a5a;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  z-index: 2000;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.25) transparent;
+}
+
+.dropdown-moderno::-webkit-scrollbar {
+  width: 6px;
+}
+
+.dropdown-moderno::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 4px;
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 8px 16px;
+  text-align: left;
+  background: transparent;
+  border: none;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  color: #ffffff;
+  cursor: pointer;
+  box-sizing: border-box;
+  transition: background-color 0.15s ease, padding-left 0.15s ease;
+}
+
+.dropdown-item span:first-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dropdown-item:hover:not(:disabled),
+.dropdown-item.sub-activo {
+  background: rgba(255, 255, 255, 0.14);
+  padding-left: 18px;
+}
+
+.dropdown-item:disabled {
+  color: rgba(255, 255, 255, 0.35);
+  cursor: default;
+}
+
+.flecha-sub {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.75);
+  margin-left: 8px;
+  flex-shrink: 0;
+}
+
+.dropdown-separador {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.12);
+  margin: 5px 0;
+}
+
+/* Segundo nivel: Flotante independiente sin restricciones de scroll */
+.sub-dropdown-flotante {
+  position: fixed; /* Se posiciona en pantalla respecto al botón en hover */
+  min-width: 230px;
+  margin: 0;
+  padding: 6px 0;
+  list-style: none;
+  background: #1c1652;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  box-shadow: 6px 10px 28px rgba(0, 0, 0, 0.5);
+  z-index: 3000;
+}
+
+.usuario-badge {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  text-align: right;
+  max-width: 200px;
+  line-height: 1.25;
+  user-select: none;
+}
+
+.usuario-nombre-completo {
+  font-size: 12px;
+  font-weight: 600;
+  color: #f1f5f9;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 190px;
+  letter-spacing: 0.2px;
+}
+
+.usuario-login {
+  font-size: 11px;
+  font-weight: 400;
+  color: #94a3b8;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 190px;
+}
